@@ -3,11 +3,11 @@ This Project uses express/nodejs to create an record player in your browser that
 
 # Installation
 
-Make sure you have Nodejs and npm setup and in the project you run:
- npm install
-And for running use:
- npm run start
-If you use dont use firefox you need to run:
-  playerctl metadata mpris:artUrl 
-And the output (only the folder not the file) you change in the 14th line:
-  const sourceDir = path.join('(your output)');
+Make sure you have Nodejs and npm setup and in the project you run:<br>
+ `npm install`<br>
+And for running use:<br>
+ `npm run start`<br>
+If you use dont use firefox you need to run:<br>
+  `playerctl metadata mpris:artUrl`<br>
+And the output (only the folder not the file) you change in the 14th line:<br>
+  `const sourceDir = path.join('(your output)');`
