@@ -1,0 +1,113 @@
+h1{
+    font-size: 40px;
+    margin: 5px;
+    padding: 5px;
+}
+*{
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    margin: 8px;
+}
+#title{
+    font-size: 30px; 
+}
+.centered{
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+#buttons{
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#vinyl{
+    position: absolute;
+    z-index: 3;
+    background: none;
+    animation: spin 3s linear infinite;
+}
+#tonearm{
+    position: absolute;
+    z-index: 5;
+    background: none;
+    margin-left: 44%;
+    padding-bottom: 39%;
+    transform-origin: 79% 11%;
+    transform: rotate(-50deg);
+}
+
+#vinyloverlay{
+    position: absolute;
+    z-index: 4;
+    background: none;
+}
+
+.background{
+    position: absolute;
+    z-index: 1;
+    border-radius: 80px;
+}
+#cover{
+    position: absolute;
+    animation: spin 3s linear infinite;
+    z-index: 2;
+}
+.recordplayer{
+    width: 600px;
+    height: 600px;
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.onvinyl{
+
+    animation:  vinylstart 1s linear forwards,
+                onvinyl 180s linear infinite 1s;
+}
+
+
+.stopped{
+    animation: stopped 2s ease forwards;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes onvinyl {
+    from {
+        transform: rotate(-38deg);
+    }
+    to {
+        transform: rotate(-19deg);
+    }
+}
+
+@keyframes vinylstart {
+    from {
+        transform: rotate(-50deg);
+    }
+    to {
+        transform: rotate(-38deg);
+    }
+}
+
+@keyframes stopped {
+    from {
+        transform: rotate(-38deg);
+    }
+    to {
+        transform: rotate(-50deg);
+    }
+}
