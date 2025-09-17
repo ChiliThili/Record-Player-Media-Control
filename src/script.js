@@ -7,6 +7,13 @@ const pause = document.getElementById("pause");
 const next = document.getElementById("next");
 const prev = document.getElementById("prev");
 
+const images = [
+    'static/vinylgreen.png',
+    'static/vinylred.png',
+    'static/vinyl.png'
+];
+
+
 async function fetchStatus() {
     const res = await fetch('/api/status');
     const data = await res.json();
@@ -18,6 +25,7 @@ setInterval(fetchStatus, 5000);
 
 play.addEventListener('click', () => {
     tonearm.classList.remove("stopped");
+
     tonearm.style.animationPlayState = 'running';
     tonearm.classList.add("onvinyl");
     vinyl.style.animationPlayState = 'running';
@@ -54,6 +62,10 @@ prev.addEventListener('click', () => {
 });
 
 next.addEventListener('click', () => {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    const randomImage = images[randomIndex];
+    vinyl.src = randomImage;
+
     tonearm.classList.remove("onvinyl");
     void tonearm.offsetWidth;
     tonearm.classList.add("onvinyl");
