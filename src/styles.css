@@ -24,13 +24,22 @@ h1{
     margin-right: auto;
 }
 
-#vinyl{
-    position: absolute;
+#vinyl{ position: absolute;
     z-index: 3;
     background: none;
     animation: spin 3s linear infinite;
 }
 #tonearm{
+    position: absolute;
+    z-index: 6;
+    background: none;
+    margin-left: 44%;
+    padding-bottom: 39%;
+    transform-origin: 79% 11%;
+    transform: rotate(-50deg);
+}
+
+#tonearm_shadow{
     position: absolute;
     z-index: 5;
     background: none;
@@ -66,11 +75,18 @@ h1{
 }
 
 .onvinyl{
-
     animation:  vinylstart 1s linear forwards,
                 onvinyl 180s linear infinite 1s;
 }
 
+.shadow{
+    animation:  shadowstart 1s linear forwards,
+                shadow 180s linear infinite 1s;
+}
+
+.shadowstopped{
+    animation: stoppedshadow 2s ease forwards;
+}
 
 .stopped{
     animation: stopped 2s ease forwards;
@@ -87,10 +103,19 @@ h1{
 
 @keyframes onvinyl {
     from {
-        transform: rotate(-38deg);
+        transform: rotate(-40deg);
     }
     to {
         transform: rotate(-19deg);
+    }
+}
+
+@keyframes shadow {
+    from {
+        transform: rotate(-39deg);
+    }
+    to {
+        transform: rotate(-17deg);
     }
 }
 
@@ -99,15 +124,33 @@ h1{
         transform: rotate(-50deg);
     }
     to {
-        transform: rotate(-38deg);
+        transform: rotate(-40deg);
+    }
+}
+
+@keyframes shadowstart {
+    from {
+        transform: rotate(-49.5deg);
+    }
+    to {
+        transform: rotate(-39deg);
     }
 }
 
 @keyframes stopped {
     from {
-        transform: rotate(-38deg);
+        transform: rotate(-30deg);
     }
     to {
         transform: rotate(-50deg);
+    }
+}
+
+@keyframes stoppedshadow {
+    from {
+        transform: rotate(-29deg);
+    }
+    to {
+        transform: rotate(-49.5deg);
     }
 }

@@ -2,6 +2,7 @@ const vinyl = document.getElementById("vinyl");
 const title = document.getElementById("title");
 const cover = document.getElementById("cover");
 const tonearm = document.getElementById("tonearm");
+const tonearmshadow = document.getElementById("tonearm_shadow");
 const play = document.getElementById("play");
 const pause = document.getElementById("pause");
 const next = document.getElementById("next");
@@ -25,9 +26,10 @@ setInterval(fetchStatus, 5000);
 
 play.addEventListener('click', () => {
     tonearm.classList.remove("stopped");
+    tonearmshadow.classList.remove("shadowstopped");
 
-    tonearm.style.animationPlayState = 'running';
     tonearm.classList.add("onvinyl");
+    tonearmshadow.classList.add("shadow");
     vinyl.style.animationPlayState = 'running';
     cover.style.animationPlayState = 'running';
     animateElement("/play");
@@ -44,7 +46,9 @@ pause.addEventListener('click', () => {
     vinyl.style.animationPlayState = 'paused';
     cover.style.animationPlayState = 'paused';
     tonearm.classList.remove("onvinyl");
+    tonearmshadow.classList.remove("shadow");
     tonearm.classList.add("stopped");
+    tonearmshadow.classList.add("shadowstopped");
     fetch("/pause", {
         method: "POST",
         headers: {
