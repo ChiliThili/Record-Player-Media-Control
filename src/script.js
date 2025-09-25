@@ -35,11 +35,19 @@ play.addEventListener('click', () => {
     animateElement("/play");
 });
 
+let animationHandler = null;
+
 function animateElement(string) {
     return new Promise(resolve => {
-        tonearm.addEventListener('animationend', () => {fetchSendButton(string);});
-        resolve();
-        }, { once: true }); // only trigger once
+        if (animationHandler) {
+            tonearm.removeEventListener('animationend', animationHandler);
+        }
+        animationHandler = () => {
+            fetchSendButton(string);
+            resolve();
+        };
+        tonearm.addEventListener('animationend', animationHandler, { once: true });
+    });
 }
 
 pause.addEventListener('click', () => {
@@ -92,5 +100,5 @@ function fetchSendButton(string){
             "Content-Type": "application/json"
         },
         body: JSON.stringify({ clicked: true })
-    });
+    }).then(res => res.json());
 }
