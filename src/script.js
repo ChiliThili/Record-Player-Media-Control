@@ -18,6 +18,12 @@ const images = [
 async function fetchStatus() {
     const res = await fetch('/api/status');
     const data = await res.json();
+    if (data.title.length > 28){
+        data.title = data.title.slice(0, 28) + "...";
+    }
+    if (data.artist.length > 20){
+        data.artist = data.artist.slice(0, 20) + "...";
+    }
     title.innerText = data.title + " - " + data.artist;
     cover.src = 'static/cover.png?t=' + new Date().getTime();
 }
