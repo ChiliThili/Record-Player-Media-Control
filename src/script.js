@@ -59,9 +59,15 @@ pause.addEventListener('click', () => {
 });
 
 prev.addEventListener('click', () => {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    const randomImage = images[randomIndex];
+    vinyl.src = randomImage;
+
     tonearm.classList.remove("onvinyl");
+    tonearmshadow.classList.remove("shadow");
     void tonearm.offsetWidth;
     tonearm.classList.add("onvinyl");
+    tonearmshadow.classList.add("shadow");
     animateElement("/prev");
 });
 
@@ -71,8 +77,11 @@ next.addEventListener('click', () => {
     vinyl.src = randomImage;
 
     tonearm.classList.remove("onvinyl");
+    tonearmshadow.classList.remove("shadow");
     void tonearm.offsetWidth;
     tonearm.classList.add("onvinyl");
+    tonearmshadow.classList.add("shadow");
+
     animateElement("/next");   
 });
 
